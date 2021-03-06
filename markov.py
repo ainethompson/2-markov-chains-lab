@@ -58,12 +58,9 @@ def make_chains(text_string):
 def make_text(chains):
     """Return text from chains."""
 
-    words = []
-
     first_key = choice(list(chains.keys()))
 
-    for item in first_key:
-        words.append(item)
+    words = [item for item in first_key]
 
     while True:
         key = tuple(words[-2:])
@@ -73,18 +70,7 @@ def make_text(chains):
             words.append(value)
         else:
             break
-
-    # get key from dict, append to words
-    # get random value from key, append to words
-
-    # loop:
-
-    # get last 2 items of list, set = new key
-    # search dict for that key
-    # choose random value from that key, append to list
-
-    # repeat last 3 steps
-
+        
     return ' '.join(words) 
 
 
