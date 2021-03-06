@@ -64,17 +64,19 @@ def make_text(chains):
 
     for item in first_key:
         words.append(item)
-    # print(list(first_key).join(", "))
-    
-    # [0::1])
-    # words.append(list(first_key))
 
-    first_val = choice(chains[first_key])
-    words.append(first_val)
+    # first_val = choice(chains[first_key])
+    # words.append(first_val)
+
+    while True:
+        key = words[-2:]
+        value = choice(chains[key])
+        words.append(value)
+
 
     print(words)
 
-    print(words[-2:])
+    # print(words[-2:])
 
     # while words[-2:-1]:
     # get key from dict, append to words
