@@ -41,7 +41,7 @@ def make_chains(text_string):
     chains = {}
 
     words = text_string.split()
-    words.append(None)
+    # words.append(None)
 
     for i in range(len(words)-2):
         key = (words[i], words[i+1])
@@ -65,20 +65,15 @@ def make_text(chains):
     for item in first_key:
         words.append(item)
 
-    # first_val = choice(chains[first_key])
-    # words.append(first_val)
-
     while True:
-        key = words[-2:]
-        value = choice(chains[key])
-        words.append(value)
+        key = tuple(words[-2:])
 
+        if key in chains:
+            value = choice(chains[key])
+            words.append(value)
+        else:
+            break
 
-    print(words)
-
-    # print(words[-2:])
-
-    # while words[-2:-1]:
     # get key from dict, append to words
     # get random value from key, append to words
 
@@ -89,9 +84,8 @@ def make_text(chains):
     # choose random value from that key, append to list
 
     # repeat last 3 steps
-    
 
-    # return ' '.join(words) 
+    return ' '.join(words) 
 
 
 input_path = 'green-eggs.txt'
