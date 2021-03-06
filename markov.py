@@ -10,9 +10,8 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
 
-    # your code goes here
-    
-    return 'Contents of your file as one long string'
+    with open(file_path) as f:
+        return f.read()
 
 
 def make_chains(text_string):
