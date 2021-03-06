@@ -5,7 +5,6 @@ import sys
 
 n = int(sys.argv[2])
 
-
 # input to command line:
 # python3 markov.py file_path length_n_gram
 
@@ -78,7 +77,7 @@ def make_text(chains):
             return ' '.join(words) 
 
 
-input_path = 'green-eggs.txt'
+input_path = sys.argv[1]
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
@@ -90,10 +89,3 @@ chains = make_chains(input_text)
 random_text = make_text(chains)
 
 print(random_text)
-
-
-
-
-
-
-# to make n grams, 
