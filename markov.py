@@ -52,7 +52,7 @@ def make_chains(text_string):
             
         chains[key].append(value)
         
-    return print(chains)
+    return chains
 
 
 def make_text(chains):
@@ -60,9 +60,36 @@ def make_text(chains):
 
     words = []
 
-    # your code goes here
+    first_key = choice(list(chains.keys()))
 
-    return ' '.join(words)
+    for item in first_key:
+        words.append(item)
+    # print(list(first_key).join(", "))
+    
+    # [0::1])
+    # words.append(list(first_key))
+
+    first_val = choice(chains[first_key])
+    words.append(first_val)
+
+    print(words)
+
+    print(words[-2:])
+
+    # while words[-2:-1]:
+    # get key from dict, append to words
+    # get random value from key, append to words
+
+    # loop:
+
+    # get last 2 items of list, set = new key
+    # search dict for that key
+    # choose random value from that key, append to list
+
+    # repeat last 3 steps
+    
+
+    # return ' '.join(words) 
 
 
 input_path = 'green-eggs.txt'
