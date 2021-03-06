@@ -40,9 +40,34 @@ def make_chains(text_string):
 
     chains = {}
 
-    # your code goes here
+    words = text_string.split()
+    words.append(None)
 
-    return chains
+    # i = 0
+
+    # while i < len(words) -2:
+    #     bigram = (words[i], words[i+1])
+
+    #     if bigram not in chains:
+    #         chains[bigram] = []
+        
+    #     chains[bigram].append(words[i+2])
+        
+    #     i += 1
+
+        # chains.get([(words[i], words[i+1])] = [words[i+2]]
+
+
+    for i in range(len(words)-2):
+        key = (words[i], words[i+1])
+        value = words[i+2]
+
+        if key not in chains:
+            chains[key] = []
+            
+        chains[key].append(value)
+        
+    return print(chains)
 
 
 def make_text(chains):
