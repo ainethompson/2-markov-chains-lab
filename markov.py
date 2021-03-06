@@ -1,7 +1,13 @@
 """Generate Markov text from text files."""
 
 from random import choice
+import sys
 
+n = int(sys.argv[2])
+
+
+# input to command line:
+# python3 markov.py file_path length_n_gram
 
 def open_and_read_file(file_path):
     """Take file path as string; return text as string.
@@ -41,11 +47,11 @@ def make_chains(text_string):
     chains = {}
 
     words = text_string.split()
-    # words.append(None)
 
-    for i in range(len(words)-2):
-        key = (words[i], words[i+1])
-        value = words[i+2]
+    for i in range(len(words)-n):
+
+        key = tuple(words[i:i+n])
+        value = words[i+n]
 
         if key not in chains:
             chains[key] = []
@@ -63,15 +69,13 @@ def make_text(chains):
     words = [item for item in first_key]
 
     while True:
-        key = tuple(words[-2:])
+        key = tuple(words[-n:])
 
         if key in chains:
             value = choice(chains[key])
             words.append(value)
         else:
-            break
-        
-    return ' '.join(words) 
+            return ' '.join(words) 
 
 
 input_path = 'green-eggs.txt'
@@ -86,3 +90,10 @@ chains = make_chains(input_text)
 random_text = make_text(chains)
 
 print(random_text)
+
+
+
+
+
+
+# to make n grams, 
